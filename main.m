@@ -110,3 +110,4 @@ if dataRows - 1 == data(1, 1) + data(1, 2) + data(1, 3)
 else
     fprintf("Array size does not match specified number of components\n");
 end
+disp(Y);
