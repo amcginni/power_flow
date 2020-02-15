@@ -1,4 +1,4 @@
-classdef Bus
+classdef Bus < handle
     properties
         P_Generator
         Q_Generator
@@ -6,8 +6,10 @@ classdef Bus
         Q_Load
         kV
         Reactance_pu
+        Admittance
     end
     methods
+        % Constructor
         function obj = Bus (PG, QG, PL, QL, kV, Xpu)
             obj.P_Generator = PG;
             obj.Q_Generator = QG;
@@ -16,6 +18,10 @@ classdef Bus
             obj.kV = kV;
             obj.Reactance_pu = Xpu;
         end
+        function obj = calculateAdmittance(obj)
+            Vpu = sqrt((obj.Q_Load-obj.Q_Generator)/obj.Reactance_pu);
+            Resistance_pu = Vpu^2/(obj.P_Load-obj.P_Generator);
+            obj.Admittance = 1/complex(Resistance_pu, obj.Reactance_pu);
+        end
     end
-    
 end

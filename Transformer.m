@@ -3,8 +3,8 @@ classdef Transformer < Line
         Tap
     end
     methods
-        function obj = Transformer (R, X, C, B, T)
-            obj@Line(R, X, C, B);
+        function obj = Transformer (From, To, R, X, C, B, T)
+            obj@Line(From, To, R, X, C, B);
             obj.Resistance = R;
             obj.Reactance = X;
             obj.Capacity = C;
