@@ -1,5 +1,5 @@
 function [y] = Y(data)
-%UNTITLED Summary of this function goes here
+%Y Create an admittance matrix from imported tabular data
 %   Detailed explanation goes here
 % This is mainly for checking that the number of rows in the matrix matches
 % the number of circuit elements

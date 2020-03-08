@@ -25,3 +25,4 @@ clear variables;
 data = readmatrix("sample.csv");
 
 disp(Y(data));
+disp(delta(data));

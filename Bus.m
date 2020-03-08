@@ -7,6 +7,7 @@ classdef Bus < handle
         kV
         Reactance_pu
         Admittance
+        delta
     end
     methods
         % Constructor
@@ -22,6 +23,9 @@ classdef Bus < handle
             Vpu = sqrt((obj.Q_Load-obj.Q_Generator)/obj.Reactance_pu);
             Resistance_pu = Vpu^2/(obj.P_Load-obj.P_Generator);
             obj.Admittance = 1/complex(Resistance_pu, obj.Reactance_pu);
+        end
+        function obj = calculateDelta(obj)
+            obj.delta = atan( ( obj.Q_Generator - obj.Q_Load) / ( obj.P_Generator - obj.P_Load) );
         end
     end
 end
